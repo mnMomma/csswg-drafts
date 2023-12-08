@@ -4906,7 +4906,7 @@ to produce more harmonized forms.</p>
 	    (OpenType feature: <span class="tag">calt</span>).</dd>
 </dl>
 
-<p id=rlig-unaffected"><em>Required</em> ligatures,
+<p id="rlig-unaffected"><em>Required</em> ligatures,
 needed for correctly rendering complex scripts,
 are not affected by the settings above,
 including <span title="none!!font-variant-ligatures">'none'</span>
@@ -4963,7 +4963,7 @@ to match the surrounding text
 and to be more readable
 without affecting the line height.</p>
 
-<div class="figure"><img alt="comparison between real subscript glyphs and synthesized ones" src="images/realsubscripts.png" /><p class="caption">Subscript glyphs (top) vs. typical synthesized subscripts (bottom)</p></div>
+<div class="figure"><img alt="comparison between real subscript glyphs and synthesized ones" src="images/realsubscripts.png"><p class="caption">Subscript glyphs (top) vs. typical synthesized subscripts (bottom)</p></div>
 
 <p>Individual values have the following meanings:</p>
 
@@ -4996,7 +4996,7 @@ for a given character,
 user agents <em>must</em> synthesize
 appropriate subscript and superscript glyphs.</p>
 
-<div class="figure"><img alt="alternate superscripts vs. glyphs synthesized using superscript metrics" src="images/superscript-alt-synth.png" /><p class="caption">Superscript alternate glyph (left), synthesized superscript glyphs (middle),  and incorrect mixture of the two (right)</p></div>
+<div class="figure"><img alt="alternate superscripts vs. glyphs synthesized using superscript metrics" src="images/superscript-alt-synth.png"><p class="caption">Superscript alternate glyph (left), synthesized superscript glyphs (middle),  and incorrect mixture of the two (right)</p></div>
 
 <!--
 	at-risk must downgraded to should
@@ -5426,7 +5426,7 @@ are used so that columns of numbers line up properly:</p>
 
 </dl>
 
-<div id="ordinal-example" class="example" id="ex-ordinal-form">
+<div class="example" id="ex-ordinal-form">
 <p>In the case of 'ordinal', although ordinal forms
 are often the same as superscript forms, they are marked up
 differently.</p>
@@ -5988,7 +5988,7 @@ p {
 	font-variant-alternates: character-variant(zeta-2, zeta);
 }</pre>
 
-	<div class="figure"><img alt="Matching text on Byzantine seals using character variants" src="images/byzantineseal.png" /><p class="caption">Byzantine seal text displayed with character variants</p></div>
+	<div class="figure"><img alt="Matching text on Byzantine seals using character variants" src="images/byzantineseal.png"><p class="caption">Byzantine seal text displayed with character variants</p></div>
 
 	<div class="example" id="ex-byzantine-variants">
 	<p>In the figure above, the text in red is rendered using a font containing
@@ -7053,12 +7053,12 @@ not just the contours describing the edges of glyphs,
 but also the colors present inside the glyphs.
 
 <figure id="multicolore">
-	<img src="images/multicolore.png" alt="an example multicolored font"/>
+	<img src="images/multicolore.png" alt="an example multicolored font">
 	<figcaption>Multicolore, by Ivan Filipov</figcaption>
 </figure>
 
 <figure id="magicalunicorn">
-		<img src="images/please.png" alt="an example multicolored font"/>
+		<img src="images/please.png" alt="an example multicolored font">
 		<figcaption>Magical Unicorn Neue Pro, by Arthur Reinders Folmer</figcaption>
 </figure>
 
@@ -7296,7 +7296,7 @@ p {
 </pre>
 
 	<figure>
-		<img src="images/nabla-animated.webp" alt="The word Animate animated between a pink and a yellow palette."/>
+		<img src="images/nabla-animated.webp" alt="The word Animate animated between a pink and a yellow palette.">
 		<figcaption>Nabla Color by typearture.com - animating between palettes 1 and 7 in the font.</figcaption>
 	</figure>
 </div>
@@ -7397,7 +7397,7 @@ User-defined font color palettes: The ''@font-palette-values'' rule</h3>
 		</pre>
 
 		<figure>
-			<img src="images/bixa-colors.png" alt="overriding a color"/>
+			<img src="images/bixa-colors.png" alt="overriding a color">
 			<figcaption>Bixa Color by Novo Typo. Above, using the colors in the font;
 				below, the orange changed to a blue.</figcaption>
 		</figure>
@@ -7902,7 +7902,7 @@ The System Font is the font which is used by the ''system-ui'' <a href="#system-
 	<code>Feat </code> and
 	<code>Sill </code> tables
 	as documented in the
-	<a href="https://scripts.sil.org/cms/scripts/render_download.php?site_id=nrsi&format=file&media_id=GraphiteBinaryFormat_3_0&filename=GraphiteBinaryFormat_3_0.pdf">Graphite Table Format</a>.
+	<a href="https://scripts.sil.org/cms/scripts/render_download.php?site_id=nrsi&amp;format=file&amp;media_id=GraphiteBinaryFormat_3_0&amp;filename=GraphiteBinaryFormat_3_0.pdf">Graphite Table Format</a>.
 	The section on [[#font-rend-props]] describes properties that interact with these facilities.
 
 	The 'variations' tech refers to the support of font variations,
@@ -8054,10 +8054,32 @@ The <code id="cssfontfacerule2">CSSFontFaceRule</code> interface</h3>
 
 The <dfn id="cssfontfacerule-interface">CSSFontFaceRule</dfn> interface represents a <<@font-face>> rule.
 
+<!--
+	FIXME: Bikeshed doesn't like the dashed attributes on CSSFontFaceDescriptors.
+-->
+
 <pre class="idl">
 [Exposed=Window]
+interface CSSFontFaceDescriptors : CSSStyleDeclaration {
+	attribute [LegacyNullToEmptyString] CSSOMString src;
+	attribute [LegacyNullToEmptyString] CSSOMString fontFamily;
+	attribute [LegacyNullToEmptyString] CSSOMString fontStyle;
+	attribute [LegacyNullToEmptyString] CSSOMString fontWeight;
+	attribute [LegacyNullToEmptyString] CSSOMString fontStretch;
+	attribute [LegacyNullToEmptyString] CSSOMString unicodeRange;
+	attribute [LegacyNullToEmptyString] CSSOMString fontFeatureSettings;
+	attribute [LegacyNullToEmptyString] CSSOMString fontVariationSettings;
+	attribute [LegacyNullToEmptyString] CSSOMString fontNamedInstance;
+	attribute [LegacyNullToEmptyString] CSSOMString fontDisplay;
+	attribute [LegacyNullToEmptyString] CSSOMString fontLanguageOverride;
+	attribute [LegacyNullToEmptyString] CSSOMString ascentOverride;
+	attribute [LegacyNullToEmptyString] CSSOMString descentOverride;
+	attribute [LegacyNullToEmptyString] CSSOMString lineGapOverride;
+};
+
+[Exposed=Window]
 interface CSSFontFaceRule : CSSRule {
-	readonly attribute CSSStyleDeclaration style;
+	readonly attribute CSSFontFaceDescriptors style;
 };
 </pre>
 
